@@ -31,7 +31,7 @@
 	<div class="wrapper">
 		<h1>Погодное приложение1</h1>
 		<p>Узнать погоду в {{ city == "" ? "вашем городе" : cityName }}</p>
-		<input type="text" v-model="city" placeholder="Введите город">
+		<input type="text" v-model="city" placeholder="Введите город быстро">
 		<button v-if="city != ''" @click="getWeather()">Получить погоду</button>
 		<button disabled v-else>Введите название города</button>
 		<p class="error">{{ error }}</p>
