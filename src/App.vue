@@ -11,7 +11,19 @@
 		computed: {
 			cityName() {
 				return "«" + this.city + "»"
-			}
+			},
+      showTemp() {
+        return "Температура: " + this.info.main.temp
+      },
+      showFeelsLike() {
+        return "Ощущается как: " + this.info.main.feels_like
+      },
+      showMinTemp() {
+        return "Минимальная температура: " + this.info.main.temp_min
+      },
+      showMaxTemp() {
+        return "Максимальная температура: " + this.info.main.temp_max
+      },
 		},
 		methods: {
 			getWeather() {
@@ -31,11 +43,17 @@
 	<div class="wrapper">
 		<h1>Погодное приложение</h1>
 		<p>Узнать погоду в {{ city == "" ? "вашем городе" : cityName }}</p>
-		<input type="text" v-model="city" placeholder="Введите город быстро">
+		<input type="text" v-model="city" placeholder="Введите город">
 		<button v-if="city != ''" @click="getWeather()">Получить погоду</button>
 		<button disabled v-else>Введите название города</button>
 		<p class="error">{{ error }}</p>
-		<p v-show="info != null">{{ info }}</p>
+
+    <div v-if="info != null">
+      <p>{{ showTemp }}</p>
+      <p>{{ showFeelsLike }}</p>
+      <p>{{ showMinTemp }}</p>
+      <p>{{ showMaxTemp }}</p>
+    </div>
 	</div>
 </template>
 
