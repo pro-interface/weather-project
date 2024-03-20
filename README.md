@@ -1,4 +1,4 @@
-# Weater project
+# Weater Project ⛅️
 
 ```
 Shows weather in different cities on request
